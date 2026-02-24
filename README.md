@@ -81,5 +81,6 @@ python3 src/gateway.py
 ## License
 This project is developed for educational purposes as part of the **Multidisciplinary Project** course.
 
-**Author**: Nguyen Duc Gia Bao, Ho Huy Hung, Nguyen Duy Thai, Nguyen Minh Quan, Nguyen Bao Dat, Nguyen Thanh Huy
+**Authors**: Nguyen Duc Gia Bao, Ho Huy Hung, Nguyen Duy Thai, Nguyen Minh Quan, Nguyen Bao Dat, Nguyen Thanh Huy.
+
 **Institution**: Faculty of Computer Science and Engineering, Ho Chi Minh City University of Technology, VNU-HCM
