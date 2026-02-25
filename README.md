@@ -22,9 +22,26 @@ A project that integrates modern technology to agriculture. With the aim to boos
 ## Project Structure
 ```
 .
-├── src/
-│   ├── gateway.py    # Sample Python Gateway
-│   └── prog_data.py  # Sending data to AIO server
+├── config/
+│   └── settings.py              # Adafruit IO parameters
+├── gateway/
+│   ├── dispatcher.py            # Observer implementation
+│   ├── gateway.py               # Core Python gateway
+│   └── observer.py              # Abstract class
+├── handlers                     # Subclasses of Observer/
+│   ├── base_handler.py          # Direct subclass
+│   ├── pump_handler.py          # Inherited subclass
+│   └── temperature_handler.py   # Inherited subclass
+├── models/
+│   └── sensor_data.py           # Additional data structures
+├── mqtt/
+│   ├── client.py                # Singleton MQTT Client
+│   └── topics.py                # Name of devices to be subscribed
+├── services/
+│   └── farm_service.py          # Optional services
+├── utils/
+│   └── logger.py
+├── app.py                       # App entry point
 ├── README.md
 └── requirements.txt
 ```
@@ -81,5 +98,6 @@ python3 src/gateway.py
 ## License
 This project is developed for educational purposes as part of the **Multidisciplinary Project** course.
 
-**Author**: Nguyen Duc Gia Bao, Ho Huy Hung, Nguyen Duy Thai, Nguyen Minh Quan, Nguyen Bao Dat, Nguyen Thanh Huy
+**Authors**: Nguyen Duc Gia Bao, Ho Huy Hung, Nguyen Duy Thai, Nguyen Minh Quan, Nguyen Bao Dat, Nguyen Thanh Huy.
+
 **Institution**: Faculty of Computer Science and Engineering, Ho Chi Minh City University of Technology, VNU-HCM
