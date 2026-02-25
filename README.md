@@ -78,20 +78,14 @@ deactivate
 ```
 
 ### Takeaways
-1. **Python IoT Gateway:** The sample program is located at `src/gateway.py`, which simulates the connection between the Python gateway and the Adafruit IO server. To run the program, issue the command:
+**Python IoT Gateway:** The sample program is located at `gateway/gateway.py`, which simulates the connection between the Python gateway and the Adafruit IO server. To run the program, issue the command:
 ```python
 # Lower version Python
-python src/gateway.py
+python gateway/gateway.py
 
 # Python 3 if supported. Check with `which python3`
-python3 src/gateway.py
+python3 gateway/gateway.py
 ```
-
-2. **Sending data to AIO server:** The sample program is located at `src/prog_data.py`, which is an extended version of the file `src/gateway.py`. Key changes:
-- **Library:**
-    - Sending random data to the AIO server by `import random`.
-    - Data is sent periodically (e.g. 30 seconds each) using `import time`.
-- The `while True:` loop now periodically sends data besides listening to the server. When there are changes in the Dashboard, the results are also sent back to the Gateway.
 
 ---
 
