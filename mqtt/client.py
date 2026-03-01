@@ -34,8 +34,7 @@ class MQTTClientSingleton:
         """
 
     def _disconnected(self,client):
-        logger.info("[DISCONNECTED] Disconnected from Adafruit IO!")
-        sys.exit(1)        
+        logger.warning("[DISCONNECTED] Disconnected from Adafruit IO!")
 
     # Getter
     def get_client(self):
@@ -44,4 +43,7 @@ class MQTTClientSingleton:
     # Start the MQTT client loop
     def connect(self):      # Called from gateway/gateway.py
         self._client.connect()
-        self._client.loop_background()
+
+    def publish(self, feed_ID: str, payload: str):
+        logger.info(f"[PUBLISH] Sending to: {feed_ID} with payload: {payload}")
+        self._client.publish(feed_ID, payload)
