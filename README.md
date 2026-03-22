@@ -131,6 +131,29 @@ Useful options:
 	- If `temperature < TEMP_LOW_THRESHOLD` -> publish `OFF` to `bbc-pump`
 - This prevents command spam when value fluctuates around one threshold.
 
+### FastAPI Bridge (MQTT-Supabase-Serial)
+Bridge service responsibilities:
+- Receive serial frames from Yolobit in format `!KEY:value#` (supported keys: `TEMP`, `SOIL`, `HUMIDITY`).
+- Persist sensor values into Supabase `sensor_data`.
+- Expose HTTP APIs for data query, health check, and pump control.
+- Send relay control frames to Yolobit using `!PUMP:ON#` and `!PUMP:OFF#`.
+
+Start bridge API:
+
+```bash
+uvicorn api.main:app --host 0.0.0.0 --port 8000
+```
+
+Recommended runtime for demo:
+1. Run MQTT gateway in one terminal: `python app.py`
+2. Run FastAPI bridge in another terminal: `uvicorn api.main:app --host 0.0.0.0 --port 8000`
+
+Main bridge endpoints:
+- `GET /health`
+- `POST /control/pump`
+- `GET /sensor-data/{sensor_id}?limit=20`
+- `GET /control-logs?limit=20`
+
 ---
 
 ## License

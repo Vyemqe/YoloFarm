@@ -1,5 +1,6 @@
 from Adafruit_IO import MQTTClient
 from config.settings import Settings
+from mqtt.topics import Topics
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -25,6 +26,12 @@ class MQTTClientSingleton:
     
     def _connected(self, client):
         logger.info("[CONNECTED] Successfully connected to Adafruit IO!")
+        client.subscribe(Topics.TEMPERATURE)
+        client.subscribe(Topics.HUMIDITY)
+        client.subscribe(Topics.MOISTURE)
+        client.subscribe(Topics.PUMP)
+        client.subscribe(Topics.FAN)
+        client.subscribe(Topics.LED)
         # client.subscribe(Settings.AIO_FEED_ID)
 
     def _subscribe(self, client , userdata , mid , granted_qos):

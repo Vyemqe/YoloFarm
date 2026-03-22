@@ -1,2 +1,7 @@
 adafruit-io
 python-dotenv
+supabase
+fastapi
+uvicorn[standard]
+pyserial
+httpx
